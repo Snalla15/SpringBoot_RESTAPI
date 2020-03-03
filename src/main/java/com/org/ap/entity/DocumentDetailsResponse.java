@@ -1,9 +1,8 @@
 package com.org.ap.entity;
-
 import org.springframework.stereotype.Component;
 
 @Component
-public class DocumentDetails {
+public class DocumentDetailsResponse {
 
 	private long provIdentifier;
 	private long subIdentifier;
@@ -15,12 +14,12 @@ public class DocumentDetails {
 	private long docNum;
 	private boolean isExists;
 	
-	public DocumentDetails() {
+	public DocumentDetailsResponse() {
 		super();
 	}
 
 
-	public DocumentDetails(long provIdentifier, long subIdentifier,
+	public DocumentDetailsResponse(long provIdentifier, long subIdentifier,
 			String docType, long oCAN, String subName, String subDob, long oTN,
 			long docNum, boolean isExists) {
 		super();
@@ -34,8 +33,7 @@ public class DocumentDetails {
 		this.docNum = docNum;
 		this.isExists = isExists;
 	}
-
-
+	
 	public long getProvIdentifier() {
 		return provIdentifier;
 	}
