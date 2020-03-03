@@ -1,0 +1,4 @@
+com\org\ap\entity\DocumentDetails.class
+com\org\ap\App.class
+com\org\ap\cassandra\CassandraConnect.class
+com\org\ap\controllers\DDController.class
