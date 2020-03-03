@@ -31,10 +31,15 @@ public class DDController {
 	
 	@GetMapping("/getDocumentDetails")
 	@ResponseBody
-	public ResponseEntity<DocumentDetailsResponse> getDocumentDetails() throws Exception{
-		
+	public ResponseEntity<DocumentDetailsResponse> getDocumentDetails(@RequestHeader HttpHeaders headers) throws Exception{
+		boolean validatedHeders =
+				util.validateHeaders(headers.getFirst("Authorization"), headers.getFirst("ClientId"), headers.getFirst("Submitter"));
+		if(validatedHeders){
 		DocumentDetailsResponse dd = cassandraConnect.getDocumentDetails();
-		return new ResponseEntity<DocumentDetailsResponse>(dd, HttpStatus.OK);
+		return ResponseEntity.ok().body(dd);
+		}else{
+			return ResponseEntity.badRequest().build();
+		}
 	}
 	@PostMapping("/createDocumentDetails")
 	@ResponseBody
